@@ -1,14 +1,14 @@
-import express, { Request, Response } from "express";
-import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import cors from "cors";
+import dotenv from "dotenv";
+import express, { Request, Response } from "express";
+import { checkDbConnection } from "../src/middlewares/dbConnectionCheck";
 import {
   authenticationRouter,
   departmentRouter,
   employeeRouter,
-} from "./routes";
-import { checkDbConnection } from "./middlewares/dbConnectionCheck";
-import cors from "cors";
+} from "../src/routes";
 
 dotenv.config();
 
@@ -36,3 +36,5 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server running at ${port}`);
 });
+
+export default app;
