@@ -1,8 +1,5 @@
 import axios from "axios";
 import { Department } from "../views/departmentView";
-import { Employee } from "../views/employeeView";
-import { insertTableInSection } from "./showEmployee";
-import { getAllEmployees } from "./getAllEmployees";
 import Swal from "sweetalert2";
 import { showDepartment } from "./showDepartment";
 import { getAllDepartments } from "./getAllDepartment";
