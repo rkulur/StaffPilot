@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h1 {
+  @apply text-4xl font-bold text-center;
+}
+h3 {
+  @apply text-2xl font-bold text-center;
+}
+
+.bb {
+  @apply border-2 border-gray-400;
+}
+
+.ffcji {
+  @apply flex flex-col justify-center items-center;
+}
+
+input {
+  @apply bb rounded-md h-10 px-2 outline-none;
+}
+
+.button {
+  @apply px-4 py-2 bg-yellow-500 text-white font-semibold outline-yellow-600 rounded-md hover:bg-yellow-400 active:scale-95;
+}
+
+.td {
+  @apply px-4 py-2 text-center relative;
+}
+
+.thead {
+  @apply hidden lg:table-header-group;
+}
+
+.tr {
+  @apply grid border-b  py-4 lg:table-row;
+}
+
+.inp {
+  @apply w-full text-center text-wrap lg:focus:absolute lg:focus:z-10  lg:focus:w-fit lg:focus:left-0 lg:focus:top-16 lg:focus:drop-shadow-xl lg:focus:transition-all lg:before:transition-all;
+}
+
+@media screen and (max-width: 1024px) {
+  td::before {
+    content: attr(data-td);
+    @apply text-gray-600 block;
+  }
+}
