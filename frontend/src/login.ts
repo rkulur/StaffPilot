@@ -14,7 +14,7 @@ export const login = async () => {
   );
   alert(res.data.message);
   const jwt = res.data.token;
-  Cookie.set("jwt", jwt, { path: "/" });
+  Cookie.set("jwt", jwt, { path: "/", sameSite: "None" });
   window.location.replace("/dashboard");
   return;
 };
