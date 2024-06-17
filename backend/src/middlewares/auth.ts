@@ -6,8 +6,8 @@ export const auth = (
   res: Response,
   next: NextFunction,
 ) => {
+  const { jwt } = req.cookies;
   try {
-    const { jwt } = req.cookies;
     console.log(req.cookies);
     const { username } = JWT.verify(
       jwt,
@@ -16,6 +16,6 @@ export const auth = (
     console.log(username);
     next();
   } catch (error) {
-    res.json({ success: false, message: error });
+    res.json({ success: false, message: error, jwt });
   }
 };
