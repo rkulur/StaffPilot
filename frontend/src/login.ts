@@ -14,10 +14,14 @@ export const login = async (app: HTMLDivElement) => {
     { username, password },
     { withCredentials: true },
   );
-  Swal.fire({
+  const result = await Swal.fire({
     title: "Logged In!",
-    text: res.data.message,
+    text: "Login successfull",
     icon: "success",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Delete",
   });
   const jwt = res.data.token;
   Cookie.set("jwt", jwt, { path: "/", sameSite: "None", secure: true });
