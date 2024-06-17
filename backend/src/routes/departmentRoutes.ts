@@ -1,4 +1,4 @@
-import express from 'express';
+import express from "express";
 
 import {
   deleteDepartment,
@@ -10,7 +10,7 @@ import {
 import { auth } from "../middlewares/auth";
 const router = express.Router();
 
-router.route("/").post(auth, insertDepartment).get(auth, getAllDepartments);
+router.route("/").post(insertDepartment).get(getAllDepartments);
 
 router
   .route("/:id")
