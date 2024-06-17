@@ -16,6 +16,6 @@ export const auth = (
     console.log(username);
     next();
   } catch (error) {
-    res.json({ success: false, message: error, jwt });
+    res.json({ success: false, message: error, jwt: jwt });
   }
 };
