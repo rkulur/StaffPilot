@@ -14,7 +14,7 @@ export const login = async (app: HTMLDivElement) => {
     { username, password },
     { withCredentials: true },
   );
-  const result = await Swal.fire({
+  await Swal.fire({
     title: "Logged In!",
     text: "Login successfull",
     icon: "success",
