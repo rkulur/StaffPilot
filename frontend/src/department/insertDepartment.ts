@@ -36,6 +36,7 @@ export const insertDepartment = (app: HTMLDivElement, depts: Department[]) => {
       document.querySelector("#newDeptName") as HTMLInputElement
     ).value;
 
+    app.innerHTML = `<i class="fa-solid fa-rotate-right animate-spin"></i>`;
     const res = await axios.post(
       import.meta.env.VITE_API_PATH + `/department`,
       { name: newDeptName },

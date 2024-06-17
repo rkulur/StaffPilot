@@ -23,6 +23,7 @@ export const deleteDepartment = async (
     return;
   }
 
+  app.innerHTML = `<i class="fa-solid fa-rotate-right animate-spin"></i>`;
   const res = await axios.delete(
     import.meta.env.VITE_API_PATH + `/department/${id}`,
     { withCredentials: true },

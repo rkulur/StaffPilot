@@ -82,6 +82,7 @@ export const updateEmployee = (
       return;
     }
 
+    empTableSection.innerHTML = `<i class="fa-solid fa-rotate-right animate-spin"></i>`;
     const res = await axios.put(
       import.meta.env.VITE_API_PATH + `/employee/${id}`,
       {

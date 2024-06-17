@@ -77,7 +77,7 @@ async function handleRoutes() {
     console.log(loginForm);
     loginForm.addEventListener("submit", (e: SubmitEvent) => {
       e.preventDefault();
-      login();
+      login(app);
     });
   }
 
@@ -99,11 +99,13 @@ async function handleRoutes() {
   }
 
   if (pathName === "/department") {
+    app.innerHTML = `<i class="fa-solid fa-rotate-right animate-spin"></i>`;
     const depts = await getAllDepartments();
     showDepartment(app, depts);
   }
 
   if (pathName === "/employee") {
+    app.innerHTML = `<i class="fa-solid fa-rotate-right animate-spin"></i>`;
     const depts = await getAllDepartments();
     const emps = await getAllEmployees();
     showEmployee(app, depts, emps);
