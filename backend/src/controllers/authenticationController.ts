@@ -15,12 +15,6 @@ function sendToken(res: Response, payload: authenticationType) {
   const expires = new Date();
   expires.setDate(expires.getDate() + 1);
 
-  res.cookie("token", token, {
-    expires,
-    httpOnly: true,
-    sameSite: "none",
-    secure: true,
-  });
   return token;
 }
 

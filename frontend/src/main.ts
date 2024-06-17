@@ -22,10 +22,11 @@ export const routes = {
 const app = document.querySelector("#app")! as HTMLDivElement;
 
 let path = window.location.pathname;
-const token = Cookie.get("token");
+const token = Cookie.get("jwt");
 const isRootPath = path === "/";
 const isTokenUndefined = token === undefined;
 
+console.log(token);
 if (isTokenUndefined) {
   handleNoToken();
 } else {

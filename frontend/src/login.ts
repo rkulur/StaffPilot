@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookie from "js-cookie";
 
 export const login = async () => {
   const username = (document.querySelector("#username") as HTMLInputElement)
@@ -12,6 +13,8 @@ export const login = async () => {
     { withCredentials: true },
   );
   alert(res.data.message);
+  const jwt = res.data.token;
+  Cookie.set("jwt", jwt, { path: "/" });
   window.location.replace("/dashboard");
   return;
 };

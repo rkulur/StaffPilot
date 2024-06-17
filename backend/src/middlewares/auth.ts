@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import jwt, { JwtPayload } from "jsonwebtoken";
+import JWT, { JwtPayload } from "jsonwebtoken";
 import db from "../config/dbconfig";
 
 export const auth = (
@@ -7,10 +7,10 @@ export const auth = (
   res: Response,
   next: NextFunction,
 ) => {
-  const { token } = req.cookies;
+  const { jwt } = req.cookies;
   console.log(req.cookies);
-  const { username } = jwt.verify(
-    token,
+  const { username } = JWT.verify(
+    jwt,
     process.env.JWT_SECRET_KEY!,
   ) as JwtPayload;
   console.log(username);
