@@ -1,5 +1,5 @@
-import { router as departmentRouter } from "./departmentRoutes.ts";
-import { router as employeeRouter } from "./employeeRoutes.ts";
-import { router as authenticationRouter } from "./authenticationRoutes.ts";
+import { router as departmentRouter } from "./departmentRoutes";
+import { router as employeeRouter } from "./employeeRoutes";
+import { router as authenticationRouter } from "./authenticationRoutes";
 
 export { departmentRouter, employeeRouter, authenticationRouter };
