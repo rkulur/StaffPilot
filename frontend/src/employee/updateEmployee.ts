@@ -98,7 +98,6 @@ export const updateEmployee = (
       },
     );
 
-    alert(res.data.message);
     if (res.data.success) {
       Swal.fire({
         title: "Updated!",

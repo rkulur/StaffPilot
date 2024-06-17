@@ -52,11 +52,13 @@ export function validateInput(
     message += "Select a dept";
   }
 
-  Swal.fire({
-    title: "Required!",
-    html: message,
-    icon: "warning",
-  });
+  if (message.length > 0) {
+    Swal.fire({
+      title: "Required!",
+      html: message,
+      icon: "warning",
+    });
+  }
 
   return message.length === 0;
 }

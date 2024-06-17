@@ -33,14 +33,14 @@ export const deleteEmployee = async (
   if (res.data.success) {
     Swal.fire({
       title: "Deleted!",
-      text: "Employee deleted successfully",
+      text: res.data.message,
       icon: "success",
     });
     insertTableInSection(empTableSection, await getAllEmployees(), depts);
   } else {
     Swal.fire({
       title: "Oops...",
-      text: "Something went wrong!",
+      text: res.data.message,
       icon: "error",
     });
     insertTableInSection(empTableSection, emps, depts);

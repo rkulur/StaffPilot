@@ -31,7 +31,7 @@ export const deleteDepartment = async (
   if (res.data.success) {
     Swal.fire({
       title: "Deleted!",
-      text: "Employee deleted successfully",
+      text: res.data.message,
       icon: "success",
     });
     showDepartment(app, await getAllDepartments());
@@ -39,7 +39,7 @@ export const deleteDepartment = async (
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Something went wrong!",
+      text: res.data.message,
     });
     showDepartment(app, depts);
   }
