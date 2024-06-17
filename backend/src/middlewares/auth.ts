@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import JWT, { JwtPayload } from "jsonwebtoken";
 
 export const auth = (
-  req: Request & { cookies: { token: string } },
+  req: Request & { cookies: { jwt: string } },
   res: Response,
   next: NextFunction,
 ) => {
