@@ -14,7 +14,10 @@ export const login = async () => {
   );
   alert(res.data.message);
   const jwt = res.data.token;
+  console.log(jwt);
   Cookie.set("jwt", jwt, { path: "/", sameSite: "None" });
+  console.log(Cookie.get("jwt"));
+  return;
   window.location.replace("/dashboard");
   return;
 };
