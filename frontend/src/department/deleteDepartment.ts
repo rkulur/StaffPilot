@@ -3,6 +3,7 @@ import { Department } from "../views/departmentView";
 import Swal from "sweetalert2";
 import { showDepartment } from "./showDepartment";
 import { getAllDepartments } from "./getAllDepartment";
+import { spinner } from "../views/spinner";
 
 export const deleteDepartment = async (
   app: HTMLDivElement,
@@ -23,7 +24,7 @@ export const deleteDepartment = async (
     return;
   }
 
-  app.innerHTML = `<i class="fa-solid fa-rotate-right animate-spin"></i>`;
+  app.innerHTML = spinner;
   const res = await axios.delete(
     import.meta.env.VITE_API_PATH + `/department/${id}`,
     { withCredentials: true },

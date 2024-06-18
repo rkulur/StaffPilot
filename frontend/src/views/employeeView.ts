@@ -12,7 +12,7 @@ export type Employee = {
 };
 
 export const employeeStructure = (depts: Department[] | null = null) => `
-<main class="h-full lg:h-screen flex flex-col items-center py-32 px-20 gap-5">
+<main class="h-full lg:h-screen flex flex-col items-center py-32 px-20 gap-5 ">
   <h1>EMPLOYEE MANAGEMENT SYSTEM</h1>
   <h3>EMPLOYEE</h3>
   <div class="w-fit">
@@ -132,7 +132,7 @@ export const updateRow = (emp: Employee, depts: Department[]) => `
     </select>
   </td>
   <td class="td flex gap-4 lg:gap-10 justify-around">
-    <button class="bg-green-400 text-white px-3 py-1 rounded hover:bg-green-600 active:scale-95 confirmUpdateBtn">
+    <button class="bg-blue-400 text-white px-3 py-1 rounded hover:bg-blue-600 active:scale-95 confirmUpdateBtn">
       Confirm
     </button>
     <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 active:scale-95 cancelUpdateBtn">
@@ -145,8 +145,7 @@ export const updateRow = (emp: Employee, depts: Department[]) => `
 export const insertRow = (depts: Department[], deptno: string) => `
 <tr class="tr">
   <td data-td="Id : " class="td"></td>
-  <td data-td="First Name : " class="td">
-    <input required type="text" class="text-center inp" id="newFirstName" />
+  <td data-td="First Name : " class="td"> <input required type="text" class="text-center inp" id="newFirstName" />
   </td>
   <td data-td="Last Name : " class="td">
     <input required type="text" class="text-center inp" id="newLastName" />
@@ -176,7 +175,7 @@ export const insertRow = (depts: Department[], deptno: string) => `
     }
   </td>
   <td class="td flex gap-4 lg:gap-10 justify-around">
-    <button class="bg-green-400 text-white px-3 py-1 rounded hover:bg-green-600 active:scale-95 confirmInsertBtn">
+    <button class="bg-blue-400 text-white px-3 py-1 rounded hover:bg-blue-600 active:scale-95 confirmInsertBtn">
       Confirm
     </button>
     <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 active:scale-95 cancelInsertBtn">

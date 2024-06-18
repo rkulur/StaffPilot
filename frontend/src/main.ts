@@ -11,6 +11,7 @@ import { getAllDepartments } from "./department/getAllDepartment";
 import { showDepartment } from "./department/showDepartment";
 import { getAllEmployees } from "./employee/getAllEmployees";
 import { showEmployee } from "./employee/showEmployee";
+import { spinner } from "./views/spinner";
 
 export const routes = {
   "/": loginView,
@@ -74,7 +75,24 @@ async function handleRoutes() {
   const pathName = window.location.pathname;
   if (pathName === "/") {
     const loginForm = document.querySelector("#loginForm")! as HTMLFormElement;
-    console.log(loginForm);
+    const password = document.querySelector("#password") as HTMLInputElement;
+    const logo = document.querySelector("#logo") as HTMLElement;
+    const passwordView = document.querySelector(
+      "#passwordView",
+    ) as HTMLButtonElement;
+    passwordView.addEventListener("click", () => {
+      const passwordType = password.getAttribute("type");
+      if (passwordType === "text") {
+        password.setAttribute("type", "password");
+        logo.classList.remove("fa-eye");
+        logo.classList.add("fa-eye-slash");
+      } else {
+        password.setAttribute("type", "text");
+        logo.classList.remove("fa-eye-slash");
+        logo.classList.add("fa-eye");
+      }
+    });
+
     loginForm.addEventListener("submit", (e: SubmitEvent) => {
       e.preventDefault();
       login(app);
@@ -99,13 +117,13 @@ async function handleRoutes() {
   }
 
   if (pathName === "/department") {
-    app.innerHTML = `<i class="fa-solid fa-rotate-right animate-spin"></i>`;
+    app.innerHTML = spinner;
     const depts = await getAllDepartments();
     showDepartment(app, depts);
   }
 
   if (pathName === "/employee") {
-    app.innerHTML = `<i class="fa-solid fa-rotate-right animate-spin"></i>`;
+    app.innerHTML = spinner;
     const depts = await getAllDepartments();
     const emps = await getAllEmployees();
     showEmployee(app, depts, emps);

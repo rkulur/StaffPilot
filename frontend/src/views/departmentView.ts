@@ -62,7 +62,7 @@ const updateRow = (dept: Department) => `
   </td>
   <td class="td flex gap-4 lg:gap-10 justify-around">
     <button
-      class="bg-green-400 text-white px-3 py-1 rounded hover:bg-green-600 active:scale-95 confirmUpdateBtn"
+      class="bg-blue-400 text-white px-3 py-1 rounded hover:bg-blue-600 active:scale-95 confirmUpdateBtn"
     >
       Confirm
     </button>
@@ -81,7 +81,7 @@ export const insertRow = `
   </td>
   <td class="td flex gap-4 lg:gap-10 justify-around">
     <button
-      class="bg-green-400 text-white px-3 py-1 rounded hover:bg-green-600 active:scale-95 confirmInsertBtn"
+      class="bg-blue-400 text-white px-3 py-1 rounded hover:bg-blue-600 active:scale-95 confirmInsertBtn"
     >
       Confirm
     </button>

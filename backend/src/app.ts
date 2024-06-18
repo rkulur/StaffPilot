@@ -28,8 +28,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(checkDbConnection);
-app.use("/department", departmentRouter);
-app.use("/employee", employeeRouter);
+app.use("/department", auth, departmentRouter);
+app.use("/employee", auth, employeeRouter);
 app.use("/auth", authenticationRouter);
 
 app.get("/", (req, res) => res.send("Sheesh"));
