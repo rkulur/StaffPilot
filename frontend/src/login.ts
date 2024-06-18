@@ -25,6 +25,23 @@ export const login = async (app: HTMLDivElement) => {
       confirmButtonText: "OK",
     });
     app.innerHTML = routes["/"];
+    const password = document.querySelector("#password") as HTMLInputElement;
+    const logo = document.querySelector("#logo") as HTMLElement;
+    const passwordView = document.querySelector(
+      "#passwordView",
+    ) as HTMLButtonElement;
+    passwordView.addEventListener("click", () => {
+      const passwordType = password.getAttribute("type");
+      if (passwordType === "text") {
+        password.setAttribute("type", "password");
+        logo.classList.remove("fa-eye");
+        logo.classList.add("fa-eye-slash");
+      } else {
+        password.setAttribute("type", "text");
+        logo.classList.remove("fa-eye-slash");
+        logo.classList.add("fa-eye");
+      }
+    });
     return;
   }
   await Swal.fire({
