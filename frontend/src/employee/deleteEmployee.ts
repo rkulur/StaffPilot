@@ -10,6 +10,7 @@ export const deleteEmployee = async (
   emps: Employee[],
   depts: Department[],
   id: string,
+  deptno: string,
 ) => {
   const result = await Swal.fire({
     title: "Are you sure?",
@@ -37,13 +38,18 @@ export const deleteEmployee = async (
       text: res.data.message,
       icon: "success",
     });
-    insertTableInSection(empTableSection, await getAllEmployees(), depts);
+    insertTableInSection(
+      empTableSection,
+      await getAllEmployees(),
+      depts,
+      deptno,
+    );
   } else {
     Swal.fire({
       title: "Oops...",
       text: res.data.message,
       icon: "error",
     });
-    insertTableInSection(empTableSection, emps, depts);
+    insertTableInSection(empTableSection, emps, depts, deptno);
   }
 };

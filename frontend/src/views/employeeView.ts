@@ -56,8 +56,17 @@ export const empTable = (rows: string) => `
   }
 `;
 
-const addSelectOptions = (depts: Department[], deptno: string = "0") => {
+const addSelectOptions = (
+  depts: Department[],
+  deptno: string | null = null,
+) => {
   let options = `<option value="0"> All Departments </option>`;
+  if (deptno === null) {
+    depts.forEach((dept) => {
+      options += `<option value=${dept.id}>${dept.name}</option>`;
+    });
+    return options;
+  }
   depts.forEach((dept) => {
     if (dept.id === deptno) {
       options += `<option value=${dept.id} selected>${dept.name}</option>`;
@@ -128,7 +137,7 @@ export const updateRow = (emp: Employee, depts: Department[]) => `
   </td>
   <td class="td">
     <select id="selectNewDept" class="block py-2 px-1 text-center w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-      ${addSelectOptions(depts, emp.deptno.toString())}
+      ${addSelectOptions(depts, emp.deptno ? emp.deptno.toString() : null)}
     </select>
   </td>
   <td class="td flex gap-4 lg:gap-10 justify-around">

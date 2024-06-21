@@ -34,7 +34,8 @@ export const insertEmployee = async (req: Request, res: Response) => {
 
 export const getAllEmployees = async (req: Request, res: Response) => {
   try {
-    const emps = (await db!`SELECT * FROM employee`) as employeeType[];
+    const emps =
+      (await db!`SELECT * FROM employee ORDER BY id`) as employeeType[];
     res.json({
       success: true,
       message: `Employees fetched successfully`,
@@ -54,7 +55,7 @@ export const getEmployeeById = async (req: Request, res: Response) => {
 
   try {
     const emp =
-      (await db!`SELECT * FROM employee WHERE id=${id}`) as employeeType[];
+      (await db!`SELECT * FROM employee WHERE id=${id} ORDER BY id`) as employeeType[];
 
     if (emp.length === 0) {
       res.json({

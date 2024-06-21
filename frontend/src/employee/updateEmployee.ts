@@ -3,14 +3,16 @@ import { Department } from "../views/departmentView";
 import { Employee, empTable, tableRow } from "../views/employeeView";
 import { insertTableInSection } from "./showEmployee";
 import { validateInput } from "./validateInput";
-import { getAllEmployees } from "./getAllEmployees";
 import Swal from "sweetalert2";
+import { getAllEmployeeByDeptId } from "./getEmployeeByDeptId";
+import { getAllEmployees } from "./getAllEmployees";
 
 export const updateEmployee = (
   empTableSection: HTMLElement,
   emps: Employee[],
   depts: Department[],
   id: string,
+  deptno: string,
 ) => {
   let rows = ``;
   emps.forEach((emp) => {
@@ -28,7 +30,7 @@ export const updateEmployee = (
   ) as HTMLButtonElement;
 
   cancelUpdateBtn.addEventListener("click", () => {
-    insertTableInSection(empTableSection, emps, depts);
+    insertTableInSection(empTableSection, emps, depts, deptno);
   });
 
   const confirmUpdateBtn = document.querySelector(
@@ -105,14 +107,19 @@ export const updateEmployee = (
         text: res.data.message,
         icon: "success",
       });
-      insertTableInSection(empTableSection, await getAllEmployees(), depts);
+      const employees =
+        deptno === "0"
+          ? await getAllEmployees()
+          : await getAllEmployeeByDeptId(deptno);
+
+      insertTableInSection(empTableSection, employees, depts, deptno);
     } else {
       Swal.fire({
         title: "Oops!",
         text: res.data.message,
         icon: "error",
       });
-      insertTableInSection(empTableSection, emps, depts);
+      insertTableInSection(empTableSection, emps, depts, deptno);
     }
   });
 };

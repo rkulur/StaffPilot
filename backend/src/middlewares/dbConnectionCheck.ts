@@ -6,7 +6,7 @@ export const checkDbConnection = (
   res: Response,
   next: NextFunction,
 ) => {
-  if (!db) {
+  if (db === null) {
     return res.json({ success: false, message: "Database connection failed" });
   }
   next();

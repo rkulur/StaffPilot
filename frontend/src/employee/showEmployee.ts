@@ -24,8 +24,8 @@ export const showEmployee = (
   const empTableSection = document.querySelector(
     "#empTableSection",
   ) as HTMLElement;
-  insertTableInSection(empTableSection, employees, depts);
   let deptno = "0";
+  insertTableInSection(empTableSection, employees, depts, deptno);
   const selectDept = document.querySelector("#selectDept") as HTMLSelectElement;
   selectDept.addEventListener("change", async () => {
     console.log("inside select");
@@ -40,7 +40,7 @@ export const showEmployee = (
     } else {
       employees = await getAllEmployeeByDeptId(deptno);
     }
-    insertTableInSection(empTableSection, employees, depts);
+    insertTableInSection(empTableSection, employees, depts, deptno);
   });
 
   const insertEmpBtn = document.querySelector(
@@ -60,6 +60,7 @@ export function insertTableInSection(
   empTableSection: HTMLElement,
   emps: Employee[],
   depts: Department[],
+  deptno: string,
 ) {
   let rows = ``;
   emps.forEach((emp) => {
@@ -76,10 +77,10 @@ export function insertTableInSection(
     button.addEventListener("click", () => {
       console.log("inside button");
       if (button.classList.contains("updateEmpBtn")) {
-        updateEmployee(empTableSection, emps, depts, button.id);
+        updateEmployee(empTableSection, emps, depts, button.id, deptno);
       }
       if (button.classList.contains("deleteEmpBtn")) {
-        deleteEmployee(empTableSection, emps, depts, button.id);
+        deleteEmployee(empTableSection, emps, depts, button.id, deptno);
       }
     });
   });

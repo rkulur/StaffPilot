@@ -46,7 +46,7 @@ export const getDepartmentById = async (req: Request, res: Response) => {
 
   try {
     const dept =
-      (await db!`SELECT id FROM department WHERE id=${id}`) as departmentType[];
+      (await db!`SELECT id FROM department WHERE id=${id} ORDER BY id`) as departmentType[];
 
     if (dept.length === 0) {
       res.json({
@@ -101,8 +101,8 @@ export const updateDepartment = async (req: Request, res: Response) => {
 };
 
 export const deleteDepartment = async (req: Request, res: Response) => {
-  const { id } = req.params;
-
+  const { id, cascadeOnDelete } = req.params;
+  console.log("cascadeOnDelete", cascadeOnDelete);
   try {
     const dept =
       (await db!`SELECT id FROM department WHERE id=${id}`) as departmentType[];
@@ -113,6 +113,12 @@ export const deleteDepartment = async (req: Request, res: Response) => {
         message: `Invalid id`,
       });
       return;
+    }
+
+    if (cascadeOnDelete === "true") {
+      await db!`DELETE FROM employee WHERE deptno = ${id}`;
+    } else {
+      await db!`UPDATE employee SET deptno=NULL WHERE deptno=${id}`;
     }
 
     await db!`DELETE FROM department WHERE id=${id}`;

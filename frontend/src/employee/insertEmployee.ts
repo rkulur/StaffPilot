@@ -2,9 +2,9 @@ import axios from "axios";
 import { Department } from "../views/departmentView";
 import { Employee, empTable, insertRow, tableRow } from "../views/employeeView";
 import { insertTableInSection } from "./showEmployee";
-import { getAllEmployees } from "./getAllEmployees";
 import Swal from "sweetalert2";
 import { validateInput } from "./validateInput";
+import { getAllEmployeeByDeptId } from "./getEmployeeByDeptId";
 
 export const insertEmployee = (
   empTableSection: HTMLElement,
@@ -25,7 +25,7 @@ export const insertEmployee = (
   ) as HTMLButtonElement;
 
   cancelInsertBtn.addEventListener("click", () => {
-    insertTableInSection(empTableSection, emps, depts);
+    insertTableInSection(empTableSection, emps, depts, deptno);
   });
 
   const DOJ = document.querySelector("#newDOJ") as HTMLInputElement;
@@ -107,14 +107,19 @@ export const insertEmployee = (
         text: res.data.message,
         icon: "success",
       });
-      insertTableInSection(empTableSection, await getAllEmployees(), depts);
+      insertTableInSection(
+        empTableSection,
+        await getAllEmployeeByDeptId(deptno),
+        depts,
+        deptno,
+      );
     } else {
       Swal.fire({
         title: "Oops!",
         text: res.data.message,
         icon: "error",
       });
-      insertTableInSection(empTableSection, emps, depts);
+      insertTableInSection(empTableSection, emps, depts, deptno);
     }
   });
 };

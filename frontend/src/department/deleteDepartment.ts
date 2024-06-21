@@ -11,22 +11,32 @@ export const deleteDepartment = async (
   id: string,
 ) => {
   const result = await Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    title: "Handle Department Deletion",
+    text: "How would you like to handle employees present in this department?",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonColor: "#3085d6",
+    showDenyButton: true,
+    confirmButtonColor: "#FACC15",
+    denyButtonColor: "#FACC15",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Delete",
+    confirmButtonText: "Delete employees",
+    denyButtonText: "Set to null",
+    cancelButtonText: "Cancel",
   });
 
-  if (!result.isConfirmed) {
+  if (result.isDismissed) {
     return;
+  }
+
+  let cascadeOnDelete = false;
+
+  if (result.isConfirmed) {
+    cascadeOnDelete = true;
   }
 
   app.innerHTML = spinner;
   const res = await axios.delete(
-    import.meta.env.VITE_API_PATH + `/department/${id}`,
+    import.meta.env.VITE_API_PATH + `/department/${id}/${cascadeOnDelete}`,
     { withCredentials: true },
   );
 
