@@ -68,9 +68,5 @@ input {
 }
 
 .rotating-div {
-  width: 100px;
-  height: 100px;
-  background-color: #4caf50;
-  margin: 50px auto;
-  animation: rotate 2s linear infinite;
+  animation: rotate 750ms linear infinite;
 }
