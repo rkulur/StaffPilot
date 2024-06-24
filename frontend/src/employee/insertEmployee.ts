@@ -5,6 +5,7 @@ import { insertTableInSection } from "./showEmployee";
 import Swal from "sweetalert2";
 import { validateInput } from "./validateInput";
 import { getAllEmployeeByDeptId } from "./getEmployeeByDeptId";
+import { getAllEmployees } from "./getAllEmployees";
 
 export const insertEmployee = (
   empTableSection: HTMLElement,
@@ -109,7 +110,9 @@ export const insertEmployee = (
       });
       insertTableInSection(
         empTableSection,
-        await getAllEmployeeByDeptId(deptno),
+        deptno === "0"
+          ? await getAllEmployees()
+          : await getAllEmployeeByDeptId(deptno),
         depts,
         deptno,
       );

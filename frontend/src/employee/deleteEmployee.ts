@@ -4,6 +4,7 @@ import { Employee } from "../views/employeeView";
 import { insertTableInSection } from "./showEmployee";
 import { getAllEmployees } from "./getAllEmployees";
 import Swal from "sweetalert2";
+import { getAllEmployeeByDeptId } from "./getEmployeeByDeptId";
 
 export const deleteEmployee = async (
   empTableSection: HTMLElement,
@@ -40,7 +41,9 @@ export const deleteEmployee = async (
     });
     insertTableInSection(
       empTableSection,
-      await getAllEmployees(),
+      deptno === "0"
+        ? await getAllEmployees()
+        : await getAllEmployeeByDeptId(deptno),
       depts,
       deptno,
     );

@@ -17,6 +17,7 @@ export const employeeStructure = (depts: Department[] | null = null) => `
   <h3>EMPLOYEE</h3>
   <div class="w-fit">
     <select id="selectDept" class="block py-2 px-1 text-center w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+      <option value="0">All Departments</option>
       ${depts ? addSelectOptions(depts) : ""}
     </select>
   </div>
@@ -60,7 +61,7 @@ const addSelectOptions = (
   depts: Department[],
   deptno: string | null = null,
 ) => {
-  let options = `<option value="0"> All Departments </option>`;
+  let options = ``;
   if (deptno === null) {
     depts.forEach((dept) => {
       options += `<option value=${dept.id}>${dept.name}</option>`;
@@ -137,6 +138,7 @@ export const updateRow = (emp: Employee, depts: Department[]) => `
   </td>
   <td class="td">
     <select id="selectNewDept" class="block py-2 px-1 text-center w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+      <option value="0">Select</option>
       ${addSelectOptions(depts, emp.deptno ? emp.deptno.toString() : null)}
     </select>
   </td>
@@ -175,8 +177,8 @@ export const insertRow = (depts: Department[], deptno: string) => `
     ${
       deptno === "0"
         ? `
-
         <select id="selectNewDept" class="block py-2 px-1 text-center w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+          <option value="0">Select</option>
           ${addSelectOptions(depts)}
         </select>
     `
