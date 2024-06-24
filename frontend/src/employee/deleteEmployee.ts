@@ -27,7 +27,7 @@ export const deleteEmployee = async (
     return;
   }
 
-  empTableSection.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i>`;
+  empTableSection.innerHTML = `<i class="fa-solid fa-spinner rotate-spinner"></i>`;
   const res = await axios.delete(
     import.meta.env.VITE_API_PATH + `/employee/${id}`,
     { withCredentials: true },

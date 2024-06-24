@@ -67,6 +67,7 @@ input {
   }
 }
 
-.rotating-div {
+.rotate-spinner {
+  transform-origin: center;
   animation: rotate 750ms linear infinite;
 }
