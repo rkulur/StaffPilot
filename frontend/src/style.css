@@ -54,3 +54,6 @@ input {
     @apply text-gray-600 block;
   }
 }
+.custom-origin {
+  transform-origin: center;
+}
