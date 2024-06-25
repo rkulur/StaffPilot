@@ -3,7 +3,7 @@ import { Department } from "../views/departmentView";
 import Swal from "sweetalert2";
 import { showDepartment } from "./showDepartment";
 import { getAllDepartments } from "./getAllDepartment";
-import { spinner } from "../views/spinner";
+import { loader } from "../views/spinner";
 
 export const deleteDepartment = async (
   app: HTMLDivElement,
@@ -34,7 +34,7 @@ export const deleteDepartment = async (
     cascadeOnDelete = true;
   }
 
-  app.innerHTML = spinner;
+  app.innerHTML = loader;
   const res = await axios.delete(
     import.meta.env.VITE_API_PATH + `/department/${id}/${cascadeOnDelete}`,
     { withCredentials: true },

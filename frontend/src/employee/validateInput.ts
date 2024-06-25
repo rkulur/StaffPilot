@@ -9,7 +9,7 @@ export function validateInput(
   salary: string,
   deptno: string,
 ) {
-  console.log(
+  (
     "firstname:",
     firstname,
     "lastname:",

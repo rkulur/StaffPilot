@@ -6,6 +6,7 @@ import { validateInput } from "./validateInput";
 import Swal from "sweetalert2";
 import { getAllEmployeeByDeptId } from "./getEmployeeByDeptId";
 import { getAllEmployees } from "./getAllEmployees";
+import { slider } from "../views/spinner";
 
 export const updateEmployee = (
   empTableSection: HTMLElement,
@@ -53,14 +54,14 @@ export const updateEmployee = (
       .value;
     const newSalary = (document.querySelector("#newSalary") as HTMLInputElement)
       .value;
-    console.log(document.querySelector("#selectNewDept") as HTMLSelectElement);
+    (document.querySelector("#selectNewDept") as HTMLSelectElement);
     const newDeptNo = (
       (
         document.querySelector("#selectNewDept") as HTMLSelectElement
       ).querySelector("option:checked") as HTMLOptionElement
     ).value;
 
-    console.log(
+    (
       newFirstName,
       newLastName,
       newEmail,
@@ -84,7 +85,7 @@ export const updateEmployee = (
       return;
     }
 
-    empTableSection.innerHTML = `<i class="fa-solid fa-circle-notch rotate-spinner"></i>`;
+    empTableSection.innerHTML = slider;
     const res = await axios.put(
       import.meta.env.VITE_API_PATH + `/employee/${id}`,
       {

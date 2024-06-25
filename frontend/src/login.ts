@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookie from "js-cookie";
 import Swal from "sweetalert2";
-import { spinner } from "./views/spinner";
+import { loader } from "./views/spinner";
 import { routes } from "./main";
 
 export const login = async (app: HTMLDivElement) => {
@@ -10,7 +10,7 @@ export const login = async (app: HTMLDivElement) => {
   const password = (document.querySelector("#password") as HTMLInputElement)
     .value;
 
-  app.innerHTML = spinner;
+  app.innerHTML = loader;
   const res = await axios.post(
     import.meta.env.VITE_API_PATH + "/auth/login",
     { username, password },

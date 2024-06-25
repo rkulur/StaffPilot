@@ -9,7 +9,7 @@ import {
 import { showDepartment } from "./showDepartment";
 import { getAllDepartments } from "./getAllDepartment";
 import Swal from "sweetalert2";
-import { spinner } from "../views/spinner";
+import { loader } from "../views/spinner";
 
 export const insertDepartment = (app: HTMLDivElement, depts: Department[]) => {
   let rows = ``;
@@ -37,7 +37,7 @@ export const insertDepartment = (app: HTMLDivElement, depts: Department[]) => {
       document.querySelector("#newDeptName") as HTMLInputElement
     ).value;
 
-    app.innerHTML = spinner;
+    app.innerHTML = loader;
     const res = await axios.post(
       import.meta.env.VITE_API_PATH + `/department`,
       { name: newDeptName },

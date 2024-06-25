@@ -11,7 +11,7 @@ import { getAllDepartments } from "./department/getAllDepartment";
 import { showDepartment } from "./department/showDepartment";
 import { getAllEmployees } from "./employee/getAllEmployees";
 import { showEmployee } from "./employee/showEmployee";
-import { spinner } from "./views/spinner";
+import { loader } from "./views/spinner";
 
 export const routes = {
   "/": loginView,
@@ -27,7 +27,7 @@ const token = Cookie.get("jwt");
 const isRootPath = path === "/";
 const isTokenUndefined = token === undefined;
 
-console.log(token);
+(token);
 if (isTokenUndefined) {
   handleNoToken();
 } else {
@@ -57,7 +57,7 @@ function handleTokenExists() {
 }
 
 window.addEventListener("popstate", async () => {
-  console.log("pop state");
+  ("pop state");
   app.innerHTML = routes[window.location.pathname as keyof typeof routes];
 });
 
@@ -103,7 +103,7 @@ async function handleRoutes() {
     const btns = document.querySelectorAll(
       "button",
     ) as NodeListOf<HTMLButtonElement>;
-    console.log(btns);
+    (btns);
     Array.from(btns).forEach((btn) => {
       btn.addEventListener("click", () => {
         if (btn.id === "departmentBtn") {
@@ -117,13 +117,13 @@ async function handleRoutes() {
   }
 
   if (pathName === "/department") {
-    app.innerHTML = spinner;
+    app.innerHTML = loader;
     const depts = await getAllDepartments();
     showDepartment(app, depts);
   }
 
   if (pathName === "/employee") {
-    app.innerHTML = spinner;
+    app.innerHTML = loader;
     const depts = await getAllDepartments();
     const emps = await getAllEmployees();
     showEmployee(app, depts, emps);

@@ -5,6 +5,7 @@ import { insertTableInSection } from "./showEmployee";
 import { getAllEmployees } from "./getAllEmployees";
 import Swal from "sweetalert2";
 import { getAllEmployeeByDeptId } from "./getEmployeeByDeptId";
+import { slider } from "../views/spinner";
 
 export const deleteEmployee = async (
   empTableSection: HTMLElement,
@@ -27,7 +28,7 @@ export const deleteEmployee = async (
     return;
   }
 
-  empTableSection.innerHTML = `<i class="fa-solid fa-circle-notch rotate-spinner"></i>`;
+  empTableSection.innerHTML = slider;
   const res = await axios.delete(
     import.meta.env.VITE_API_PATH + `/employee/${id}`,
     { withCredentials: true },
