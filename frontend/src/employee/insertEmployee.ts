@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { validateInput } from "./validateInput";
 import { getAllEmployeeByDeptId } from "./getEmployeeByDeptId";
 import { getAllEmployees } from "./getAllEmployees";
+import { slider } from "../views/spinner";
 
 export const insertEmployee = (
   empTableSection: HTMLElement,
@@ -85,7 +86,7 @@ export const insertEmployee = (
       return;
     }
 
-    empTableSection.innerHTML = `<i class="fa-solid fa-circle-notch rotate-spinner"></i>`;
+    empTableSection.innerHTML = slider;
     const res = await axios.post(
       import.meta.env.VITE_API_PATH + "/employee",
       {
