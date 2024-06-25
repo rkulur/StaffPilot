@@ -9,23 +9,6 @@ export function validateInput(
   salary: string,
   deptno: string,
 ) {
-  (
-    "firstname:",
-    firstname,
-    "lastname:",
-    lastname,
-    "email:",
-    email,
-    "phonenumber:",
-    phonenumber,
-    "doj:",
-    doj,
-    "salary:",
-    salary,
-    "deptno:",
-    deptno,
-  );
-
   let message = "";
 
   if (firstname === "") {

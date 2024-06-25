@@ -54,22 +54,12 @@ export const updateEmployee = (
       .value;
     const newSalary = (document.querySelector("#newSalary") as HTMLInputElement)
       .value;
-    (document.querySelector("#selectNewDept") as HTMLSelectElement);
+    document.querySelector("#selectNewDept") as HTMLSelectElement;
     const newDeptNo = (
       (
         document.querySelector("#selectNewDept") as HTMLSelectElement
       ).querySelector("option:checked") as HTMLOptionElement
     ).value;
-
-    (
-      newFirstName,
-      newLastName,
-      newEmail,
-      newPhoneNumber,
-      newDOJ,
-      newSalary,
-      newDeptNo,
-    );
 
     const isValidated = validateInput(
       newFirstName,
