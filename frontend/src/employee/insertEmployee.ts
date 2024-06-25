@@ -85,7 +85,7 @@ export const insertEmployee = (
       return;
     }
 
-    empTableSection.innerHTML = `<i class="fa-solid fa-spinner rotate-spinner"></i>`;
+    empTableSection.innerHTML = `<i class="fa-solid fa-circle-notch rotate-spinner"></i>`;
     const res = await axios.post(
       import.meta.env.VITE_API_PATH + "/employee",
       {

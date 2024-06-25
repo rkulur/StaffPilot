@@ -71,3 +71,7 @@ input {
   transform-origin: center;
   animation: rotate 750ms linear infinite;
 }
+
+.scale-200 {
+  scale: 200%;
+}

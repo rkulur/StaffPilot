@@ -33,7 +33,7 @@ export const showEmployee = (
       "option:checked",
     ) as HTMLOptionElement;
 
-    empTableSection.innerHTML = `<i class="fa-solid fa-spinner rotate-spinner"></i>`;
+    empTableSection.innerHTML = `<i class="fa-solid fa-circle-notch rotate-spinner"></i>`;
     deptno = selectedDept.value;
     if (deptno === "0") {
       employees = await getAllEmployees();
