@@ -37,16 +37,16 @@ export const empTable = (rows: string) => `
       <table class="lg:min-w-full bg-white border">
         <thead class="thead">
           <tr class="bg-gray-200">
-            <th class="px-4 py-2 border">ID</th>
-            <th class="px-4 py-2 border">First Name</th>
-            <th class="px-4 py-2 border">Last Name</th>
-            <th class="px-4 py-2 border">Email</th>
-            <th class="px-4 py-2 border">Phone Number</th>
-            <th class="px-4 py-2 border">DOJ</th>
-            <th class="px-4 py-2 border">Salary</th>
-            <th class="px-4 py-2 border">Dept Number</th>
-            <th class="px-4 py-2 border"></th>
-            <th class="px-4 py-2 border"></th>
+            <th class="px-4 py-2 ">ID</th>
+            <th class="px-4 py-2 ">First Name</th>
+            <th class="px-4 py-2 ">Last Name</th>
+            <th class="px-4 py-2 ">Email</th>
+            <th class="px-4 py-2 ">Phone Number</th>
+            <th class="px-4 py-2 ">DOJ</th>
+            <th class="px-4 py-2 ">Salary</th>
+            <th class="px-4 py-2 ">Dept Number</th>
+            <th class="px-4 py-2 "></th>
+            <th class="px-4 py-2 "></th>
           </tr>
         </thead>
         <tbody id="tbody" class="relative">

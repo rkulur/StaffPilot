@@ -9,7 +9,7 @@ export const departmentStructure = (rows: string) => `
   ${
     rows === ""
       ? `<p>No Department present</p>`
-      : `<table class="lg:w-3/4 bg-white border">
+      : `<table class="lg:w-3/4 border">
           <thead class="thead">
             <tr class="bg-gray-200">
               <th class="px-4 py-2 border">Dept ID</th>
