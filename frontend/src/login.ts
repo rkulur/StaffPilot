@@ -10,9 +10,10 @@ export const login = async (app: HTMLDivElement) => {
   const password = (document.querySelector("#password") as HTMLInputElement)
     .value;
 
+  const path = import.meta.env.VITE_API_PATH + "/auth/login";
   app.innerHTML = loader;
   const res = await axios.post(
-    import.meta.env.VITE_API_PATH + "/auth/login",
+    path,
     { username, password },
     { withCredentials: true },
   );
@@ -53,5 +54,5 @@ export const login = async (app: HTMLDivElement) => {
   });
   const jwt = res.data.token;
   Cookie.set("jwt", jwt, { path: "/", sameSite: "None", secure: true });
-  // window.location.replace("/dashboard");
+  window.location.replace("/dashboard");
 };
