@@ -54,6 +54,7 @@ export const login = async (req: Request, res: Response) => {
     res.json({
       success: false,
       message: `An error occured during login`,
+      error,
     });
   }
 };
