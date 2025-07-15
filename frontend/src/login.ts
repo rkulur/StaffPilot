@@ -53,5 +53,5 @@ export const login = async (app: HTMLDivElement) => {
   });
   const jwt = res.data.token;
   Cookie.set("jwt", jwt, { path: "/", sameSite: "None", secure: true });
-  window.location.replace("/dashboard");
+  // window.location.replace("/dashboard");
 };

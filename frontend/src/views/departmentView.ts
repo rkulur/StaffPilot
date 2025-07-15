@@ -4,7 +4,7 @@ export type Department = {
 };
 export const departmentStructure = (rows: string) => `
 <main class="h-full lg:h-screen flex flex-col items-center py-32 px-20 gap-5">
-  <h1>EMPLOYEE MANAGEMENT SYSTEM</h1>
+  <h1>STAFFPILOT</h1>
   <h3>DEPARTMENT</h3>
   ${
     rows === ""

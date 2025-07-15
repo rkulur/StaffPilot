@@ -26,8 +26,6 @@ let path = window.location.pathname;
 const token = Cookie.get("jwt");
 const isRootPath = path === "/";
 const isTokenUndefined = token === undefined;
-
-(token);
 if (isTokenUndefined) {
   handleNoToken();
 } else {
@@ -103,7 +101,7 @@ async function handleRoutes() {
     const btns = document.querySelectorAll(
       "button",
     ) as NodeListOf<HTMLButtonElement>;
-    (btns);
+    btns;
     Array.from(btns).forEach((btn) => {
       btn.addEventListener("click", () => {
         if (btn.id === "departmentBtn") {
